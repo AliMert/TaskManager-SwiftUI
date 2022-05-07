@@ -7,19 +7,14 @@
 
 import SwiftUI
 
+//  MARK: - CustomSegmentedBar Protocol
 protocol CustomSegmentedBarProtocol: ObservableObject {
     var currentTab: CustomSegmentedBarItem { get set }
     var tabs: [CustomSegmentedBarItem] { get }
 }
 
-struct CustomSegmentedBarItem: Identifiable, Equatable {
-    let id = UUID().uuidString
-    let title: String
 
-    init(_ title: String) {
-        self.title = title
-    }
-}
+//  MARK: - CustomSegmentedBar
 
 struct CustomSegmentedBar<Observable>: View where Observable: CustomSegmentedBarProtocol {
 

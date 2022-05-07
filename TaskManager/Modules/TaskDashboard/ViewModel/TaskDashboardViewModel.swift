@@ -8,17 +8,12 @@
 import Foundation
 
 class TaskDashboardViewModel: ObservableObject, CustomSegmentedBarProtocol {
-    let tabs: [CustomSegmentedBarItem] = [ .init("Today"), .init("Upcoming"), .init("Task Done")]
+    let tabs: [CustomSegmentedBarItem]
     @Published var currentTab: CustomSegmentedBarItem
+    @Published var openEditTask: Bool = false
 
     init() {
+        tabs = [.init("Today"), .init("Upcoming"), .init("Task Done")]
         currentTab = tabs[0]
     }
-
-
-    @Published var openEditTask: Bool = false
-    @Published var taskTitle: String = ""
-    @Published var taskColor: String = "Yellow"
-    @Published var taskType: String = "Basic"
-    @Published var taskDeadline: Date = Date()
 }

@@ -29,6 +29,12 @@ struct TaskDashboardView: View {
 
                 // MARK: Task View
 
+                NavigationLink(
+                    destination:
+                        AddNewTaskView().navigationBarHidden(true),
+                    isActive: $viewModel.openEditTask,
+                    label: {}
+                )
             }
             .padding()
         }
@@ -36,7 +42,7 @@ struct TaskDashboardView: View {
 
             // MARK: Add Button
             Button {
-
+                viewModel.openEditTask = true
             } label: {
                 Label {
                     Text("Add Task")
