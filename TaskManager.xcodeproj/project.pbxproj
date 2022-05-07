@@ -17,6 +17,7 @@
 		E19F49362825C86B00387B42 /* TaskDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49352825C86B00387B42 /* TaskDashboardView.swift */; };
 		E19F493928268C3300387B42 /* CustomSegmentedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493828268C3300387B42 /* CustomSegmentedBar.swift */; };
 		E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */; };
+		E19F493D2826A0DB00387B42 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493C2826A0DB00387B42 /* AddNewTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E19F49352825C86B00387B42 /* TaskDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardView.swift; sourceTree = "<group>"; };
 		E19F493828268C3300387B42 /* CustomSegmentedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedBar.swift; sourceTree = "<group>"; };
 		E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardViewModel.swift; sourceTree = "<group>"; };
+		E19F493C2826A0DB00387B42 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				E19F49352825C86B00387B42 /* TaskDashboardView.swift */,
 				E19F493828268C3300387B42 /* CustomSegmentedBar.swift */,
+				E19F493C2826A0DB00387B42 /* AddNewTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				E19F49262825C6E400387B42 /* TaskManager.xcdatamodeld in Sources */,
 				E19F492D2825C78000387B42 /* View+Extensions.swift in Sources */,
 				E19F49362825C86B00387B42 /* TaskDashboardView.swift in Sources */,
+				E19F493D2826A0DB00387B42 /* AddNewTaskView.swift in Sources */,
 				E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */,
 				E19F491A2825C6E200387B42 /* TaskManagerApp.swift in Sources */,
 			);

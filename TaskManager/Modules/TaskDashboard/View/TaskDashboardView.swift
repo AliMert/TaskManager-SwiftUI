@@ -35,6 +35,44 @@ struct TaskDashboardView: View {
         .overlay(alignment: .bottom) {
 
             // MARK: Add Button
+            Button {
+
+            } label: {
+                Label {
+                    Text("Add Task")
+                } icon: {
+                    Image(systemName: "plus.app.fill")
+
+                }
+                .font(.title3.bold())
+                .foregroundColor(.white)
+                .padding(.vertical, 12)
+                .padding(.horizontal, 20)
+                .shadow(color: .black, radius: 0.5, x: 0.8, y: 0.5)
+                .background {
+                    Capsule()
+                        .fill(Color("CustomSegmentedBarBackground"))
+                        .shadow(color: Color(UIColor.label), radius: 0.9, x: 0.5, y: 0.5)
+
+                }
+            }
+            .padding(.top, 10)
+            .frame(maxWidth: .infinity)
+            // MARK: Linear Gradient BG
+            .background{
+                LinearGradient(
+                    colors: [
+                        Color(UIColor.systemGray5).opacity(0.05),
+                        Color(UIColor.systemGray5).opacity(0.1),
+                        Color(UIColor.systemGray5).opacity(0.4),
+                        Color(UIColor.systemGray5).opacity(0.7),
+                        Color(UIColor.systemGray5)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+            }
         }
     }
 }
@@ -46,5 +84,7 @@ struct TaskDashboardView_Previews: PreviewProvider {
                 .navigationTitle("Task Manager")
                 .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(.stack)
+//        .preferredColorScheme(.dark)
     }
 }
