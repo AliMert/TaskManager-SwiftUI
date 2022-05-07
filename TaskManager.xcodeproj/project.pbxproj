@@ -13,6 +13,10 @@
 		E19F49212825C6E400387B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19F49202825C6E400387B42 /* Preview Assets.xcassets */; };
 		E19F49232825C6E400387B42 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49222825C6E400387B42 /* Persistence.swift */; };
 		E19F49262825C6E400387B42 /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19F49242825C6E400387B42 /* TaskManager.xcdatamodeld */; };
+		E19F492D2825C78000387B42 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F492C2825C78000387B42 /* View+Extensions.swift */; };
+		E19F49362825C86B00387B42 /* TaskDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49352825C86B00387B42 /* TaskDashboardView.swift */; };
+		E19F493928268C3300387B42 /* CustomSegmentedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493828268C3300387B42 /* CustomSegmentedBar.swift */; };
+		E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		E19F49202825C6E400387B42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E19F49222825C6E400387B42 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E19F49252825C6E400387B42 /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
+		E19F492C2825C78000387B42 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E19F49352825C86B00387B42 /* TaskDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardView.swift; sourceTree = "<group>"; };
+		E19F493828268C3300387B42 /* CustomSegmentedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedBar.swift; sourceTree = "<group>"; };
+		E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +63,10 @@
 		E19F49182825C6E200387B42 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				E19F49192825C6E200387B42 /* TaskManagerApp.swift */,
-				E19F491B2825C6E200387B42 /* ContentView.swift */,
-				E19F491D2825C6E400387B42 /* Assets.xcassets */,
-				E19F49222825C6E400387B42 /* Persistence.swift */,
-				E19F49242825C6E400387B42 /* TaskManager.xcdatamodeld */,
+				E19F49302825C7DF00387B42 /* App */,
+				E19F492E2825C78400387B42 /* Common */,
+				E19F49312825C7F900387B42 /* Modules */,
+				E19F49372825CA7B00387B42 /* Resources */,
 				E19F491F2825C6E400387B42 /* Preview Content */,
 			);
 			path = TaskManager;
@@ -71,6 +78,75 @@
 				E19F49202825C6E400387B42 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E19F492E2825C78400387B42 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E19F492F2825C78B00387B42 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E19F492F2825C78B00387B42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E19F492C2825C78000387B42 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E19F49302825C7DF00387B42 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E19F49192825C6E200387B42 /* TaskManagerApp.swift */,
+				E19F491B2825C6E200387B42 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E19F49312825C7F900387B42 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E19F49322825C83D00387B42 /* TaskDashboard */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E19F49322825C83D00387B42 /* TaskDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E19F49342825C85A00387B42 /* ViewModel */,
+				E19F49332825C85300387B42 /* View */,
+			);
+			path = TaskDashboard;
+			sourceTree = "<group>";
+		};
+		E19F49332825C85300387B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E19F49352825C86B00387B42 /* TaskDashboardView.swift */,
+				E19F493828268C3300387B42 /* CustomSegmentedBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E19F49342825C85A00387B42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E19F49372825CA7B00387B42 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E19F491D2825C6E400387B42 /* Assets.xcassets */,
+				E19F49222825C6E400387B42 /* Persistence.swift */,
+				E19F49242825C6E400387B42 /* TaskManager.xcdatamodeld */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19F493928268C3300387B42 /* CustomSegmentedBar.swift in Sources */,
 				E19F49232825C6E400387B42 /* Persistence.swift in Sources */,
 				E19F491C2825C6E200387B42 /* ContentView.swift in Sources */,
 				E19F49262825C6E400387B42 /* TaskManager.xcdatamodeld in Sources */,
+				E19F492D2825C78000387B42 /* View+Extensions.swift in Sources */,
+				E19F49362825C86B00387B42 /* TaskDashboardView.swift in Sources */,
+				E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */,
 				E19F491A2825C6E200387B42 /* TaskManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
