@@ -112,7 +112,7 @@ struct AddNewTaskView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
 
-                        TextField("", text: $viewModel.taskTitle)
+                        TextField("Task Title...", text: $viewModel.taskTitle)
                             .frame(maxWidth: .infinity)
                             .padding(.top, 10)
                     }
