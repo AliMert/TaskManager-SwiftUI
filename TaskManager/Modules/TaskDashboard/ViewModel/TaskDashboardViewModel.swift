@@ -12,8 +12,11 @@ class TaskDashboardViewModel: ObservableObject, CustomSegmentedBarProtocol {
     @Published var currentTab: CustomSegmentedBarItem
     @Published var openEditTask: Bool = false
 
+    // MARK: Editing Existing Task Data
+    var editTask: Task?
+
     init() {
-        tabs = [.init("Today"), .init("Upcoming"), .init("Task Done")]
+        tabs = CustomSegmentedBarType.allCases.map { CustomSegmentedBarItem($0.rawValue) }
         currentTab = tabs[0]
     }
 }

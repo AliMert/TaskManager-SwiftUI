@@ -9,21 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
-    init() {
-        let image = UIImage(systemName: "arrow.left")
-        UINavigationBar.appearance().backIndicatorImage = image
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
-        UINavigationBar.appearance().tintColor = .label
-    }
     
     var body: some View {
         NavigationView {
-            TaskDashboardView(viewModel: .init())
+            TaskDashboardView()
                 .navigationTitle("Task Manager")
                 .navigationBarTitleDisplayMode(.inline)
         }
         .navigationViewStyle(.stack)
+        .preferredColorScheme(.light)
     }
 }
 

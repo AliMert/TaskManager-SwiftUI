@@ -19,7 +19,13 @@
 		E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */; };
 		E19F493D2826A0DB00387B42 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F493C2826A0DB00387B42 /* AddNewTaskView.swift */; };
 		E19F49432826E74100387B42 /* AddNewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49422826E74100387B42 /* AddNewTaskViewModel.swift */; };
-		E19F49472826E8AF00387B42 /* CustomSegmentedBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49462826E8AF00387B42 /* CustomSegmentedBarItem.swift */; };
+		E19F49492827149700387B42 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49482827149700387B42 /* UINavigationController+Extensions.swift */; };
+		E19F494B28271DCD00387B42 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F494A28271DCD00387B42 /* TaskView.swift */; };
+		E19F494D28271F6300387B42 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F494C28271F6300387B42 /* TaskRowView.swift */; };
+		E19F495128272F8E00387B42 /* DynamicFilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F495028272F8E00387B42 /* DynamicFilteredView.swift */; };
+		E19F49532827385C00387B42 /* TaskSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49522827385C00387B42 /* TaskSort.swift */; };
+		E19F495528273BB800387B42 /* CustomSegmentedBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F495428273BB800387B42 /* CustomSegmentedBarItem.swift */; };
+		E19F495A2827CC5F00387B42 /* CustomSegmentedBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F49592827CC5F00387B42 /* CustomSegmentedBarType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +42,13 @@
 		E19F493A28268CED00387B42 /* TaskDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardViewModel.swift; sourceTree = "<group>"; };
 		E19F493C2826A0DB00387B42 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 		E19F49422826E74100387B42 /* AddNewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewModel.swift; sourceTree = "<group>"; };
-		E19F49462826E8AF00387B42 /* CustomSegmentedBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedBarItem.swift; sourceTree = "<group>"; };
+		E19F49482827149700387B42 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		E19F494A28271DCD00387B42 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		E19F494C28271F6300387B42 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		E19F495028272F8E00387B42 /* DynamicFilteredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFilteredView.swift; sourceTree = "<group>"; };
+		E19F49522827385C00387B42 /* TaskSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSort.swift; sourceTree = "<group>"; };
+		E19F495428273BB800387B42 /* CustomSegmentedBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedBarItem.swift; sourceTree = "<group>"; };
+		E19F49592827CC5F00387B42 /* CustomSegmentedBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedBarType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,7 @@
 		E19F492E2825C78400387B42 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E19F49562827CC0A00387B42 /* View */,
 				E19F49442826E88100387B42 /* Component */,
 				E19F492F2825C78B00387B42 /* Extensions */,
 			);
@@ -99,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				E19F492C2825C78000387B42 /* View+Extensions.swift */,
+				E19F49482827149700387B42 /* UINavigationController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +137,7 @@
 		E19F49322825C83D00387B42 /* TaskDashboard */ = {
 			isa = PBXGroup;
 			children = (
+				E19F49582827CC5600387B42 /* Model */,
 				E19F49342825C85A00387B42 /* ViewModel */,
 				E19F49332825C85300387B42 /* View */,
 				E19F493E2826E6F400387B42 /* SubModules */,
@@ -134,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				E19F49352825C86B00387B42 /* TaskDashboardView.swift */,
+				E19F49572827CC1C00387B42 /* Task */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,9 +217,35 @@
 			isa = PBXGroup;
 			children = (
 				E19F493828268C3300387B42 /* CustomSegmentedBar.swift */,
-				E19F49462826E8AF00387B42 /* CustomSegmentedBarItem.swift */,
+				E19F495428273BB800387B42 /* CustomSegmentedBarItem.swift */,
 			);
 			path = CustomSegmentedBar;
+			sourceTree = "<group>";
+		};
+		E19F49562827CC0A00387B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E19F495028272F8E00387B42 /* DynamicFilteredView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E19F49572827CC1C00387B42 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				E19F494A28271DCD00387B42 /* TaskView.swift */,
+				E19F494C28271F6300387B42 /* TaskRowView.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		E19F49582827CC5600387B42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E19F49522827385C00387B42 /* TaskSort.swift */,
+				E19F49592827CC5F00387B42 /* CustomSegmentedBarType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,15 +318,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19F495128272F8E00387B42 /* DynamicFilteredView.swift in Sources */,
 				E19F493928268C3300387B42 /* CustomSegmentedBar.swift in Sources */,
+				E19F495528273BB800387B42 /* CustomSegmentedBarItem.swift in Sources */,
 				E19F49232825C6E400387B42 /* Persistence.swift in Sources */,
 				E19F491C2825C6E200387B42 /* ContentView.swift in Sources */,
-				E19F49472826E8AF00387B42 /* CustomSegmentedBarItem.swift in Sources */,
+				E19F49532827385C00387B42 /* TaskSort.swift in Sources */,
 				E19F49262825C6E400387B42 /* TaskManager.xcdatamodeld in Sources */,
 				E19F49432826E74100387B42 /* AddNewTaskViewModel.swift in Sources */,
 				E19F492D2825C78000387B42 /* View+Extensions.swift in Sources */,
+				E19F494B28271DCD00387B42 /* TaskView.swift in Sources */,
+				E19F49492827149700387B42 /* UINavigationController+Extensions.swift in Sources */,
 				E19F49362825C86B00387B42 /* TaskDashboardView.swift in Sources */,
+				E19F494D28271F6300387B42 /* TaskRowView.swift in Sources */,
 				E19F493D2826A0DB00387B42 /* AddNewTaskView.swift in Sources */,
+				E19F495A2827CC5F00387B42 /* CustomSegmentedBarType.swift in Sources */,
 				E19F493B28268CED00387B42 /* TaskDashboardViewModel.swift in Sources */,
 				E19F491A2825C6E200387B42 /* TaskManagerApp.swift in Sources */,
 			);

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TaskDashboardView: View {
 
-    @StateObject var viewModel: TaskDashboardViewModel
+    @StateObject var viewModel: TaskDashboardViewModel = .init()
+
+    // MARK: Matched Geometry Namespace
     @Namespace var animation: Namespace.ID
 
     var body: some View {
@@ -28,13 +30,20 @@ struct TaskDashboardView: View {
                     .padding(.top, 5)
 
                 // MARK: Task View
+                if let currentTab = CustomSegmentedBarType(rawValue: viewModel.currentTab.title) {
+                    TaskView(currentTab: currentTab, viewModel: viewModel)
+                }
 
                 NavigationLink(
                     destination:
-                        AddNewTaskView().navigationBarHidden(true),
+                        AddNewTaskView(editTask: viewModel.editTask)
+                        .navigationBarHidden(true),
                     isActive: $viewModel.openEditTask,
                     label: {}
                 )
+                .onAppear {
+                    viewModel.editTask = nil
+                }
             }
             .padding()
         }
@@ -86,7 +95,7 @@ struct TaskDashboardView: View {
 struct TaskDashboardView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TaskDashboardView(viewModel: .init())
+            TaskDashboardView()
                 .navigationTitle("Task Manager")
                 .navigationBarTitleDisplayMode(.inline)
         }

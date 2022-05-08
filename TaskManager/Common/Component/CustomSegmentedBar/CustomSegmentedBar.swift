@@ -23,12 +23,12 @@ struct CustomSegmentedBar<Observable>: View where Observable: CustomSegmentedBar
 
     var body: some View {
         HStack(spacing: 10) {
-            ForEach(delegate.tabs, id: \.id) { tab in
-                let isCurrentTab = delegate.currentTab == tab
+            ForEach(delegate.tabs) { tab in
+                let isCurrentTab = delegate.currentTab.id == tab.id
                 if isCurrentTab {
                     Text(tab.title)
                         .font(.body)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .lineLimit(1)
                         .padding(.vertical, 6)

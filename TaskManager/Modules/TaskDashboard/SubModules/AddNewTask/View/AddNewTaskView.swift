@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct AddNewTaskView: View {
-    @StateObject private var viewModel = AddNewTaskViewModel()
+    @StateObject private var viewModel: AddNewTaskViewModel
 
     // MARK: All Environment Values in one Variable
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.self) private var env
     @Namespace private var animation
+
+    init(editTask: Task? = nil) {
+        let viewModel = AddNewTaskViewModel(editTask: editTask)
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -23,12 +28,26 @@ struct AddNewTaskView: View {
                         .frame(maxWidth: .infinity)
                         .overlay(alignment: .leading) {
                             Button {
-                                dismiss()
+                                env.dismiss()
                             } label: {
                                 Image(systemName: "arrow.left")
                                     .font(.title3)
                                     .foregroundColor(.black)
                             }
+                        }
+                        .overlay(alignment: .trailing) {
+                            Button {
+                                guard let editTask = viewModel.editTask else {
+                                    return
+                                }
+                                viewModel.deleteTask(task: editTask, context: env.managedObjectContext)
+                                env.dismiss()
+                            } label: {
+                                Image(systemName: "trash")
+                                    .font(.title3)
+                                    .foregroundColor(.red)
+                            }
+                            .opacity(viewModel.editTask == nil ? 0 : 1)
                         }
 
                     VStack(alignment: .leading, spacing: 12) {
@@ -78,7 +97,7 @@ struct AddNewTaskView: View {
                     .hLeading()
                     .overlay(alignment: .bottomTrailing) {
                         Button {
-        //                    viewModel.showDatePicker.toggle()
+                            viewModel.showDatePicker.toggle()
                         } label: {
                             Image(systemName: "calendar")
                                 .foregroundColor(.black)
@@ -141,31 +160,71 @@ struct AddNewTaskView: View {
 
 
                     // MARK: Save Button
-                    VStack {
-                        Spacer()
-
-                        Button {
-
-                        } label: {
-                            Text("Save Task")
-                                .font(.callout)
-                                .fontWeight(.semibold)
-                                .maxWidth()
-                                .padding(.vertical, 12)
-                                .foregroundColor(.white)
-                                .background {
-                                    Capsule()
-                                        .fill(.black)
-                                }
+                    Button {
+                        // MARK: If Success Closing View
+                        if viewModel.upsertTask(context: env.managedObjectContext) {
+                            env.dismiss()
                         }
-                        .vBottom()
-                    .padding(.vertical, 10)
+                    } label: {
+                        Text("Save Task")
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                            .maxWidth()
+                            .padding(.vertical, 12)
+                            .foregroundColor(.white)
+                            .background {
+                                Capsule()
+                                    .fill(.black)
+                            }
                     }
+                    .vBottom()
+                    .padding(.vertical, 10)
+                    .disabled(viewModel.taskTitle == "")
+                    .opacity(viewModel.taskTitle == "" ? 0.6 : 1)
                 }
                 .padding()
                 .frame(minHeight: geometry.size.height)
+                .overlay {
+                    ZStack {
+                        if viewModel.showDatePicker {
+                            Rectangle()
+                                .fill(.ultraThinMaterial)
+                                .ignoresSafeArea()
+                                .onTapGesture {
+                                    viewModel.showDatePicker = false
+                                }
+
+                            Button {
+                                viewModel.showDatePicker = false
+                            } label: {
+                                Image(systemName: "xmark")
+                                    .font(.system(size: 22))
+                                    .foregroundColor(Color(UIColor.label).opacity(0.6))
+                            }
+                            .padding()
+                            .vTop()
+                            .hLeading()
+
+                            // MARK: Disabling Past Dates
+                            DatePicker(
+                                "",
+                                selection: $viewModel.taskDeadline,
+                                in: Date.now...Date.distantFuture
+                            )
+                            .labelsHidden()
+                            .datePickerStyle(.graphical)
+                            .padding()
+                            .background(Color(UIColor.systemBackground), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .padding()
+                        }
+                    }
+                    .animation(.easeInOut, value: viewModel.showDatePicker)
+                }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
+        }
+        .onAppear {
+            viewModel.setup()
         }
     }
 }
